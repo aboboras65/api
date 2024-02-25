@@ -1,0 +1,8 @@
+node_modules
+.env
+create-table.js
+routes.http
+database-memory.js
+teste.py
+bot_telegram.py
+abobora.py
