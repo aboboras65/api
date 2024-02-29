@@ -22,6 +22,15 @@ server.get('/tasks/tag/:tag', async (request, reply) => {
 })
 
 
+server.get('/task/status/:tag', async (request, reply) => {
+    const tagTask = request.params.tag
+
+    const status = await database.getStatus(tagTask)
+
+    return status
+})
+
+
 server.post('/task', async (request, reply) => {
     const { tag, title, description, status } = request.body
 

@@ -38,7 +38,13 @@ export class DatabasePostgres {
         await sql`UPDATE tasks set status = NOT status WHERE tag = ${tag}`
     }
 
+    async getStatus(tag) {
+        await sql`select status from tasks where tag = ${tag}`
+    }
+
     async delete(id) {
-        await sql`DELETE FROM tasks WHERE tag = ${id}`
+        const status = await sql`DELETE FROM tasks WHERE tag = ${id}`
+
+        return status
     }
 }
