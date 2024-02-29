@@ -39,12 +39,12 @@ export class DatabasePostgres {
     }
 
     async getStatus(tag) {
-        await sql`select status from tasks where tag = ${tag}`
+        const status = await sql`select status from tasks where tag = ${tag}`
+
+        return status
     }
 
     async delete(id) {
-        const status = await sql`DELETE FROM tasks WHERE tag = ${id}`
-
-        return status
+         await sql`DELETE FROM tasks WHERE tag = ${id}`
     }
 }
